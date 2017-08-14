@@ -1,10 +1,11 @@
+#include "../runner.h"
+
+#ifndef __APPLE__
 #include <stdio.h>
 #include <seccomp.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-
-#include "../runner.h"
 
 
 int general_seccomp_rules(struct config *_config) {
@@ -40,3 +41,8 @@ int general_seccomp_rules(struct config *_config) {
     seccomp_release(ctx);
     return 0;
 }
+#else
+int general_seccomp_rules(struct config *_config) {
+    return 0;
+}
+#endif

@@ -6,7 +6,7 @@
 #include <sched.h>
 #include <signal.h>
 #include <pthread.h>
-#include <wait.h>
+#include <sys/wait.h>
 #include <errno.h>
 #include <unistd.h>
 

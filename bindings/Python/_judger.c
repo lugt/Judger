@@ -99,7 +99,13 @@ static PyObject *judger_run(PyObject *self, PyObject *args, PyObject *kwargs) {
         }
     }
 
-    void *handler = dlopen("/usr/lib/judger/libjudger.so", RTLD_LAZY);
+#ifdef __APPLE__
+    char *lib_path = "/usr/lib/judger/libjudger.dylib";
+#else
+    char *lib_path = "/usr/lib/judger/libjudger.so";
+#endif
+
+    void *handler = dlopen(lib_path, RTLD_LAZY);
     int (*judger_run)(struct config *, struct result *);
 
     if (!handler) {
