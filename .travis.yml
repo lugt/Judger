@@ -26,6 +26,6 @@ addons:
       name: "QingdaoU/Judger"
       description: "Coverity for judger"
     notification_email: virusdefender@outlook.com
-    build_command_prepend: "mkdir build && cd build && cmake .."
+    build_command_prepend: "cd ../../build && make clean"
     build_command:   "make"
     branch_pattern: coverity_scan
