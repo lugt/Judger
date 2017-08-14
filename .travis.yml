@@ -15,3 +15,17 @@ script:
     - cd ../../tests/Python_and_core && sudo `which python` test.py
 notifications:
     slack: onlinejudgeteam:BzBz8UFgmS5crpiblof17K2W
+env:
+  global:
+  # for converity
+   - secure: "TmiGJADkdEj2csqesmhMR8e+hcqIhAR2ggABLYuWcwSHTbQ2/hQymFndBpGsPuW2wZC5hpClkDqqCz82L04GpdwP9xOSwKT5m7CidFAdFmdwuY67MEFXTrGM1uVE84WBLbY/4R+ZvlYmNl3eKDU2q7aAQAk+N5nghrA2w3fiLRQ2Jgcf0RN50r+R1YmD5TELW+mkDWxsDaJ0JuFa0JptSXEMh2bW+FKvtK6GTaZef2YdQwRR64LI/JTAUqijuI5d0YIoxz6/jy5maeanY2nvRpUIMfJ8CVvfCNIZMW2mY5JDiZaoUZj3FD7YL85hXG3G/p+udE6l7asW4XsUeASHxPCfJq1C8x/XUpu7WMTtgPRk5qzrJGDBT7/XZfdEyJl7cBJsE8LJORRLGXJO3qBx1JUsKVmuuR7GyLpSKMchrRGBtXKHtdYl9oDHd5cVBMSKdOXELGeErUrthV4+FCEaBiwoUZLPVkdqsdip5rgePvquVmTSfWyUUkC4AxklzlM3UJHAgRM83gSSVDmI6Wgs7WFXik4T46D/JZZgD1ETDtX7AnZbQWQG6ZB0oXLJD/DG3/BUAhHzmoINx+L5qEYNeRhfRYR+LSvx43WXIXvRJz0DB02swhFzsynfF4xc9wAYWhhmJacQlYKNUoDcn7neIVJhB4WwzmcZigWAaJjDX/Y="
+
+addons:
+  coverity_scan:
+    project:
+      name: "QingdaoU/Judger"
+      description: "Coverity for judger"
+    notification_email: virusdefender@outlook.com
+    build_command_prepend: "mkdir build && cd build && cmake .."
+    build_command:   "make"
+    branch_pattern: coverity_scan
