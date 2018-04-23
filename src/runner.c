@@ -60,6 +60,7 @@ void run(struct config *_config, struct result *_result) {
         ERROR_EXIT(FORK_FAILED);
     }
     else if (child_pid == 0) {
+      // Created Process
         child_process(log_fp, _config);
     }
     else if (child_pid > 0){

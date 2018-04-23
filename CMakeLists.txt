@@ -4,7 +4,8 @@ project(judger C)
 #set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/output)
 
-set(CMAKE_C_FLAGS "-g -Wall -Werror -O3 -std=c99 -pie -fPIC")
+set(CMAKE_C_FLAGS "-g -O0 -std=c11 -pie -fPIC")
+set(CMAKE_CXX_FLAGS "-g -O0 -std=c++17 -pie -fPIC -fconcepts")
 
 # make judger lib
 file(GLOB SOURCE "src/*.c" "src/rules/*.c")

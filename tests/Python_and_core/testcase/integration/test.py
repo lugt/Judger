@@ -325,5 +325,7 @@ class IntegrationTest(base.BaseTestCase):
         config["input_path"] = self.make_input("111" * 10000 + "\n")
         config["output_path"] = config["error_path"] = self.output_path()
 
+        print(config)
         result = _judger.run(**config)
+        print(result)
         self.assertEqual(result["result"], _judger.RESULT_SUCCESS)
